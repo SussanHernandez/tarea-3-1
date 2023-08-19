@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2Ejercicio3_1.Views.ListaAlumnos">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="AlumnosListView" 
+                      ItemsSource="{Binding ListViewSource}" 
+                      IsRefreshing="{Binding IsRefreshing}
+                    "
+                      ItemSelected="AlumnosListView_ItemSelected">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.RowSpan="4" Grid.Column="0" Source="{Binding RutaImagenFileUri}" 
+                                       WidthRequest="50" HeightRequest="50" Margin="5"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nombres}" FontSize="Large"/>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Direccion}" />
+                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding OtroDato}" />
+                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding OtroDato2}" />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
